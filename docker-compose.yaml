@@ -1,0 +1,25 @@
+version: "3.7"
+
+networks:
+  net-prod:
+    name: net-prod
+    external: false
+
+services:
+  prod-srv-file-cleaner:
+    container_name: prod-api-bloiz-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    image: prod-api-bloiz-app
+    env_file: .env
+    environment:
+      - DB_HOST=192.168.1.11
+      - DATABASE=db_test
+      - DB_USER=test
+      - DB_PASSWORD=test
+      - DB_PORT=5432
+    ports:
+      - "192.168.1.11:8890:8888"
+    networks:
+      - net-prod
