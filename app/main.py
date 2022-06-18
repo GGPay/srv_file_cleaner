@@ -8,10 +8,9 @@ from starlette.datastructures import Secret
 
 from app.application import app
 from app.routes.users import router as user_router
-from app.routes.code import router as code_router
 
 
-ROUTERS = (user_router, code_router)
+ROUTERS = (user_router)
 
 for r in ROUTERS:
     app.include_router(r)
