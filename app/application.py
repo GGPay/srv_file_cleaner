@@ -1,12 +1,16 @@
 from fastapi import FastAPI
-from gino.ext.starlette import Gino
-from sqlalchemy.schema import MetaData
-from starlette.datastructures import Secret
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
 
-from .settings.globals import DATABASE_CONFIG
+from app.settings.globals import DATABASE_CONFIG
+
 
 app: FastAPI = FastAPI(title='Data Crunch Application',
-                       description='Service for cleaning and matching description with database',
+                       description='Service for check description in database',
                        version='0.0.1')
 
-db: MetaData = Gino(app, dsn=DATABASE_CONFIG.url)
+engine = create_async_engine(
+    DATABASE_CONFIG.url
+)
+async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+

@@ -1,22 +1,20 @@
 # isort:skip_file
 
 import sys
+import uvicorn
+from app.application import app
+from app.routes.processing import router as processing_router
+
 
 sys.path.extend(["./"])
 
-from starlette.datastructures import Secret
 
-from app.application import app
-from app.routes.users import router as user_router
-
-
-ROUTERS = (user_router)
+ROUTERS = [processing_router]
 
 for r in ROUTERS:
     app.include_router(r)
 
 
 if __name__ == "__main__":
-    import uvicorn
 
     uvicorn.run(app, host="0.0.0.0", port=8888, log_level="info")

@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Optional
 
 from starlette.config import Config
-from starlette.datastructures import CommaSeparatedStrings, Secret
+from starlette.datastructures import Secret
 
 from ..models.pydantic.database import DatabaseURL
 
@@ -17,15 +17,7 @@ DB_PASSWORD: Optional[Secret] = config(
 DB_HOST: str = config("DB_HOST", cast=str, default="localhost")
 DB_PORT: int = config("DB_PORT", cast=int, default=5432)
 DATABASE_CONFIG: DatabaseURL = DatabaseURL(
-    drivername="asyncpg",
-    username=DB_USER,
-    password=DB_PASSWORD,
-    host=DB_HOST,
-    port=DB_PORT,
-    database=DATABASE,
-)
-ALEMBIC_CONFIG: DatabaseURL = DatabaseURL(
-    drivername="postgresql+psycopg2",
+    drivername="postgresql+asyncpg",
     username=DB_USER,
     password=DB_PASSWORD,
     host=DB_HOST,
