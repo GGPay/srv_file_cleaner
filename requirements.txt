@@ -1,6 +1,7 @@
 sqlalchemy-utils==0.38.2
 fastapi==0.78.0
-fastapi uvicorn[standard]
+uvicorn==0.17.6
 pydantic==1.9.1
 starlette==0.19.1
 sqlalchemy==1.4.37
+asyncpg==0.25.0

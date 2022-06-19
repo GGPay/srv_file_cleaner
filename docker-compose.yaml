@@ -7,11 +7,10 @@ networks:
 
 services:
   prod-srv-file-cleaner:
-    container_name: prod-api-bloiz-app
+    container_name: prod-srv-file-cleaner-app
     build:
       context: .
       dockerfile: Dockerfile
-#    image: prod-api-bloiz-app
     env_file: .env
     environment:
       - DB_HOST=192.168.1.11
@@ -20,6 +19,6 @@ services:
       - DB_PASSWORD=test
       - DB_PORT=5432
     ports:
-      - "192.168.1.11:8890:8888"
+      - "8888:8888"
     networks:
       - net-prod
