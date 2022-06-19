@@ -3,7 +3,7 @@
 import sys
 import uvicorn
 from app.application import app
-from app.routes.processing import router as processing_router
+from app.routes.product import router as processing_router
 
 
 sys.path.extend(["./"])

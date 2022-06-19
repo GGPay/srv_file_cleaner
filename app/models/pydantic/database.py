@@ -1,5 +1,4 @@
 from typing import Any, Optional, Union
-
 from pydantic import BaseModel, validator
 from pydantic.fields import Field
 from sqlalchemy.engine.url import URL
