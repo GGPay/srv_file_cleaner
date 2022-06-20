@@ -29,7 +29,7 @@ async def get_product_matching_score(part_number: str, factory_id: int, db: Asyn
     df['uniqueNumberCount'] = df.apply(fe.get_unique_number_count, axis=1) + 1
     df['numberMatchRate'] = df.apply(fe.get_rate, axis=1)
     df['matchScore'] = df.apply(fe.sorted_levenshtein_rate_apply, axis=1)
-    cols = ['factoryID', 'partNumber', 'target_partNumber', 'matchScore']
+    cols = ['factoryID', 'partNumber', 'target_partNumber', 'matchScore', 'description']
     df = df.nlargest(3, 'matchScore')
     df_result = df[cols]
 

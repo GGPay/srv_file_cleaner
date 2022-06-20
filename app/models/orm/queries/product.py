@@ -1,12 +1,16 @@
-from sqlalchemy import select
-from app.models.orm.db_schema import Product as ORMProduct
 from app.models.pydantic.product import ProductModel
 
 
 async def get_products_by_factory_id(id, db):
 
-    result = await db.execute(select(ORMProduct).where(ORMProduct.factoryID == id))
-    products = result.scalars().all()
+    stmt = 'select DISTINCT ordd."description", pr."partNumber", pr."factoryID"' \
+           'from "order" ord, "orderDetails" ordd, "product" pr ' \
+           'where ord."orderID" = ordd."orderID" ' \
+           'and pr."productID" = ordd."productID" ' \
+           'and pr."factoryID" = ' + str(id)
+
+    result = await db.execute(stmt)
+    products = result.all()
 
     context = []
     i = 0
