@@ -47,16 +47,3 @@ class StringClean:
         l_str = StringClean.remove_leading_zeros(l_str)
 
         return l_str
-
-if __name__ == '__main__':
-    l_str = "01: 1626181 "
-    #l_str = "6982-11-13D2/40"
-    #l_str = "0001626181 "
-
-    clean_string = StringClean.remove_whitespace(l_str)
-    clean_string = StringClean.remove_after_backslash(clean_string)
-    clean_string = StringClean.remove_shorter_number_by_whitespace(clean_string)
-    clean_string = StringClean.remove_shorter_number_by_colon(clean_string)
-    clean_string = StringClean.remove_leading_zeros(clean_string)
-    pass
-

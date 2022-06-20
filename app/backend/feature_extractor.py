@@ -107,12 +107,3 @@ def levenshtein_rate(product1, product2):
     distance = levenshtein(product1, product2)
     max_len = max(len(product1), len(product2))
     return 1 - (distance / max_len)
-
-
-if __name__ == "__main__":
-    met1 = "Selpak Kağıt Havlu 8'li"
-    met2 = "Selpak Kağıt Havlu 12'li"
-    print('Levenshtein Distance: {}, MatchScore: {} '.\
-          format(levenshtein(met1, met2), levenshtein_rate(met1, met2)))
-    print('Sorted Levenshtein Distance: {}, MatchScore: {} '.\
-          format(sorted_levenshtein(met1, met2), sorted_levenshtein_rate(met1, met2)))
