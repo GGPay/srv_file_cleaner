@@ -12,12 +12,6 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file: .env
-    environment:
-      - DB_HOST=192.168.1.11
-      - DATABASE=db_test
-      - DB_USER=test
-      - DB_PASSWORD=test
-      - DB_PORT=5432
     ports:
       - "8888:8888"
     networks:
