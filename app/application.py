@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from app.settings.globals import DATABASE_CONFIG
 
 
-app: FastAPI = FastAPI(title='Data Crunch Application',
+app: FastAPI = FastAPI(title='Application',
                        description='Service for check description in database',
                        version='0.0.1')
 

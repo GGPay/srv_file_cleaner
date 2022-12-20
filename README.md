@@ -11,9 +11,9 @@ Restfull service for cleaning manually enter values compare to database Product 
 
 1. Run app using docker-compose
 
- ```shell script
+```shell script
     docker-compose up
- ```
+```
 
 ### Run application in python###
 
